@@ -1,0 +1,10 @@
+Open Government Licence v3.0
+
+This is an educational simulation based on publicly available information 
+about the DWP Universal Credit Managed Migration programme. 
+
+Contains no real claimant data, proprietary DWP code, or confidential 
+business information. 
+
+Licensed under the Open Government Licence v3.0 
+(http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
