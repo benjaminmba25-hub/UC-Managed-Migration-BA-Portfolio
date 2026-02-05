@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  title: Legacy Benefit Verification API
+  description: |
+    API specification for Move to UC programme. 
+    Enables real-time legacy entitlement checks to eliminate swivel chair processes.
+  version: 1.0.0
+  contact:
+    name: Business Analysis Team (Simulation)
+    
+paths:
+  /claimants/{nino}/legacy-entitlements:
+    get:
+      summary: Retrieve legacy entitlements for transitional protection
+      parameters:
+        - name: nino
+          in: path
+          required: true
+          description: National Insurance Number
+          schema:
+            type: string
+            pattern: '^[A-Z]{2}[0-9]{6}[A-D]$'
+            example: 'QQ123456A'
+      responses:
+        '200':
+          description: Successful retrieval
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  esa_amount:
+                    type: number
+                    description: Income-related ESA weekly amount
+                    example: 450.00
+                  housing_benefit:
+                    type: number
+                    description: HB entitlement
+                    example: 120.50
+                  migration_cutoff_date:
+                    type: string
+                    format: date
+                    example: '2024-12-01'
+        '404':
+          description: Claimant not found in legacy systems
